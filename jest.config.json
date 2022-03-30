@@ -1,0 +1,12 @@
+{
+  "roots": ["<rootDir>/src"],
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "setupFilesAfterEnv": [
+    "<rootDir>/src/tests/setup.ts"
+  ],
+  "testEnvironment": "jsdom",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+}
