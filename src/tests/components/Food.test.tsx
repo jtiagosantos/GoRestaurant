@@ -21,6 +21,8 @@ const foodProps = {
 }
 
 describe('Food component tests', () => {
+  beforeEach(() => mockedAPI.reset());
+
   it('renders correctly texts', () => {
     const { getByText } = render(<Food {...foodProps} />);
 
