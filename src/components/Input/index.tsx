@@ -48,6 +48,7 @@ export const Input = ({ name, ...rest }: InputProps) => {
         defaultValue={defaultValue}
         ref={inputRef}
         {...rest}
+        data-testid={isFocused ? 'on-focus': 'no-focus'}
       />
     </Container>
   );
