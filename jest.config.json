@@ -1,12 +1,18 @@
 {
-  "roots": ["<rootDir>/src"],
   "transform": {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
   },
   "setupFilesAfterEnv": [
     "<rootDir>/src/tests/setup.ts"
   ],
   "testEnvironment": "jsdom",
-  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  "moduleNameMapper": {
+    "\\.(scss|sass|css)$": "identity-obj-proxy",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/transforms/fileTransformer.ts"
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.tsx",
+    "!src/**/transforms/*.ts"
+  ]
 }
