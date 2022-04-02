@@ -32,33 +32,25 @@ export const Dashboard = () => {
   }, []);
 
   const handleAddFood = async (food: IFood) => {
-    try {
-      const { data } = await api.post('/foods', {
-        ...food,
-        available: true,
-      });
+    const { data } = await api.post('/foods', {
+      ...food,
+      available: true,
+    });
 
-      setFoods([...foods, data]);
-    } catch(error) {
-      console.log(error);
-    }
+    setFoods([...foods, data]);
   }
 
   const handleUpdateFood = async (food: IFood) => {
-    try {
-      const foodUpdated = await api.put(
-        `/foods/${editingFood.id}`,
-        { ...editingFood, ...food },
-      );
+    const foodUpdated = await api.put(
+      `/foods/${editingFood.id}`,
+      { ...editingFood, ...food },
+    );
 
-      const foodsUpdated = foods.map(food =>
-        food.id !== foodUpdated.data.id ? food : foodUpdated.data,
-      );
+    const foodsUpdated = foods.map(food =>
+      food.id !== foodUpdated.data.id ? food : foodUpdated.data,
+    );
 
-      setFoods(foodsUpdated);
-    } catch (error) {
-      console.log(error);
-    }
+    setFoods(foodsUpdated);
   }
 
   const handleDeleteFood = async (id: number) => {
