@@ -12,7 +12,7 @@
   },
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "src/**/*.tsx",
-    "!src/**/transforms/*.ts"
+    "src/components/**/*.tsx",
+    "src/pages/**/*.tsx"
   ]
 }
